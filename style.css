@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display:flex;
+  width: 90vw;  
+}
+
+.panel{
+  background-size:auto 100%; /*ilgili yazının arka plan boyutunu yüzde yüz kaplayacak şekilde yaptık*/
+  background-position: center; /*arka plan görselini ortaladık*/
+  background-repeat: no-repeat; /*ilgili arka plan görselinin tekrarlamasını engelledik*/
+  height: 80vh; /*Yüksekliğini ayarladık*/
+  border-radius: 50px; /*kenarları 50 piksel oval kırptık*/
+  color:#fff; /*metine arka plan rengi ekledik*/
+  cursor:pointer; /*etkileşim effect ekledik*/
+  flex:0.5; /* enlem genişliğni ayarladık*/
+  margin:10px; /*nesnelere aralık ekledik*/
+  position:relative;/*metinlerin pozisyonu ayarlandı*/
+  -webkit-transition: all 700ms ease-in; /*sayfanın yüklendiği anda nesnelerin önce toplu ve dar sonra açılmış şekilde görünmesi yaratıldı*/ 
+} 
+
+.panel h3{
+  position: absolute; /*konumlandırılan ilk ögeye göre diğerlerinin konumlanması sağlandı*/
+  font-size: 24px;;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity:0;
+}
+
+.panel.active{
+  
+  flex:5;
+
+}
+
+.panel.active h3{
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media(max-width:480px){
+  .container{
+    width:100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5){
+    display: none;
+  }
+}
